@@ -1,5 +1,7 @@
 package com.singal.maddog.graphics;
 
+import java.util.Arrays;
+
 public class Screen {
 
     private int width, height;
@@ -17,6 +19,10 @@ public class Screen {
                 pixels[y * width + x] = 0xff00ff; // since we are using a one dimensional array, we access it like this
             }
         }
+    }
+
+    public void clear(){
+        Arrays.fill(pixels, 0); // can be done using a for loop manually
     }
 
     public int getWidth() {
