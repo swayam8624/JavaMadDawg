@@ -7,6 +7,10 @@ public class Screen {
     private int width, height;
     public int[] pixels;
 
+    int xtime ;
+    int ytime ;
+    int counter=0;
+
     public Screen(int width, int height) {
         this.width = width;
         this.height = height;
@@ -14,9 +18,14 @@ public class Screen {
     }
 
     public void render() {
+        counter++;
+        if(counter%100==0)xtime++;
+        if(counter%200==0)ytime++;
         for(int y=0; y<height; y++) {
+            if(ytime>=height) break;
             for(int x=0; x<width; x++) {
-                pixels[y * width + x] = 0xff00ff; // since we are using a one dimensional array, we access it like this
+                if (xtime>=width) break;
+                pixels[ytime * width + xtime] = 0xff00ff; // since we are using a one dimensional array, we access it like this
             }
         }
     }
