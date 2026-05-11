@@ -1,7 +1,12 @@
 package com.singal.maddog;
 
+import com.singal.maddog.graphics.Screen;
+
 import javax.swing.JFrame; // Base Container or the main window for the GUI
 import java.awt.*;
+import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferInt;
 
 public class Game extends Canvas implements Runnable {
     private static final long serialVersionUID = 1L;
@@ -15,11 +20,19 @@ public class Game extends Canvas implements Runnable {
     private JFrame frame;
     private boolean running = false;
 
+    private Screen screen;
+
+    private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB); // creating an image
+    private int[] pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData(); // converting the image object into an array of integers , accessing the image
+
     public Game() {
         Dimension size = new Dimension(width*scale , height*scale); // actual size is scale times the rendering size
         setPreferredSize(size);
 
+        screen = new Screen(width, height);
+
         frame = new JFrame();
+
     }
 
     public synchronized void start() {
@@ -39,8 +52,39 @@ public class Game extends Canvas implements Runnable {
     public void run(){
         // Game Loop
         while(running){
-            System.out.println("Running.....");
+            update(); // also called tick, limited to around 60 times per sec
+            render(); // can run infinitely
         }
+    }
+
+    public void update(){
+
+    }
+
+    public void render(){
+        BufferStrategy bs = getBufferStrategy();
+        if (bs == null){
+            createBufferStrategy(3); // we don't wanna create buffer everytime, thus the check . 3 for multiple buffering - speed improvement
+            return;
+        }
+
+        screen.render();
+
+        for(int i = 0; i < pixels.length; i++){
+            pixels[i] = screen.pixels[i];
+        }
+
+        Graphics g = bs.getDrawGraphics();
+        /*
+        We don't need the below 2 lines anymore as we are now rendering using the Screen class
+        g.setColor(Color.black);
+        g.fillRect(0,0,getWidth(),getHeight()); // filling should be after you set the color
+        */
+        g.drawImage(image,0,0,getWidth(),getHeight(),null);
+        g.dispose();
+        bs.show();
+
+
     }
 
     public static void main(String[] args) {
