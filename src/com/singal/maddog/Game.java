@@ -51,10 +51,24 @@ public class Game extends Canvas implements Runnable {
     }
     public void run(){
         // Game Loop
+
+        long lastTime = System.nanoTime();
+        final double ns = 1000000000.0 / 60.0;
+        double delta = 0;
+
+
         while(running){
-            update(); // also called tick, limited to around 60 times per sec
+
+            long now = System.nanoTime();
+            delta += (now - lastTime) / ns;
+            lastTime = now;
+            while(delta >= 1){
+                update(); // also called tick, limited to around 60 times per sec
+                delta--;
+            }
             render(); // can run infinitely
         }
+        stop();
     }
 
     public void update(){
