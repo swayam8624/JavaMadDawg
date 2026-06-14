@@ -1,0 +1,17 @@
+apply plugin: 'application'
+
+application {
+    mainClass = 'com.singal.maddog.game.RainGame'
+}
+
+dependencies {
+    implementation project(':engine-core')
+    implementation project(':engine-math')
+    implementation project(':engine-renderer')
+    implementation project(':engine-input')
+    implementation project(':engine-assets')
+    implementation project(':engine-network')
+    implementation project(':engine-tools')
+    implementation project(':engine-ai')
+    implementation project(':engine-physics2d')
+}

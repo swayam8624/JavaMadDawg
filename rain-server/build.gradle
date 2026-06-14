@@ -1,0 +1,10 @@
+apply plugin: 'application'
+
+application {
+    mainClass = 'com.singal.maddog.server.RainServer'
+}
+
+dependencies {
+    implementation project(':engine-network')
+    implementation project(':engine-math')
+}
