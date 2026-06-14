@@ -1,0 +1,12 @@
+dependencies {
+    implementation project(':engine-math')
+    implementation project(':engine-assets')
+    implementation project(':engine-input')
+    implementation project(':engine-renderer')
+    implementation project(':engine-physics2d')
+    implementation project(':engine-ai')
+    implementation project(':engine-network')
+    
+    // GSON for JSON saving / loading
+    implementation 'com.google.code.gson:gson:2.11.0'
+}
