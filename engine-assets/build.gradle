@@ -1,0 +1,3 @@
+dependencies {
+    // Basic asset loader, no external dependencies
+}
