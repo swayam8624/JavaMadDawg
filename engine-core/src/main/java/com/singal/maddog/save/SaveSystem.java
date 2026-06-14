@@ -20,7 +20,7 @@ public class SaveSystem {
         public int width = 300;
         public int height = 168;
         public int scale = 3;
-        public String title = "Rain Remastered";
+        public String title = "MadDawg";
         public boolean soundEnabled = true;
     }
 

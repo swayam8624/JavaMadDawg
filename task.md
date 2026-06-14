@@ -1,0 +1,38 @@
+# Tasks
+
+- [x] Phase 1: Build system modernization
+  - [x] Initialize root Gradle project
+  - [x] Set up settings.gradle with submodules
+  - [x] Create build.gradle templates for modules
+  - [x] Verify clean build structure
+- [x] Phase 2: Core application/game loop rewrite
+  - [x] Implement `Application` class
+  - [x] Implement `GameLoop` with fixed timestep/variable render
+  - [x] Create `Scene` and `Layer` abstractions
+- [x] Phase 3: Rendering and asset system
+  - [x] Create `AssetManager` with caching
+  - [x] Build `RenderContext`, `Texture`, `SpriteSheet`, `Sprite`, `Animation`
+  - [x] Build `Camera2D`
+- [x] Phase 4: Entity and world system
+  - [x] Build `Entity` base and `Component` system (ECS-lite)
+  - [x] Implement `Tile` and `TileMap`
+  - [x] Implement map loader from custom data/JSON
+- [x] Phase 5: Collision and physics
+  - [x] Build `AABB` collider and triggers
+  - [x] Implement collision resolution for entities vs tiles and entities vs entities
+- [x] Phase 6: Gameplay remaster
+  - [x] Set up main menu and settings screen
+  - [x] Add player entity, movement, projectiles, particles
+  - [x] Add basic AI wandering and chasing behaviors
+- [x] Phase 7: Save/load and serialization
+  - [x] Modernize custom binary serialization
+  - [x] Implement JSON settings and state save/load
+- [x] Phase 8: Networking/server study and demo
+  - [x] Setup UDP Packet handler
+  - [x] Implement login handshake and position sync demo
+- [x] Phase 9: Debug tools, testing, and profiling
+  - [x] Add debug overlay HUD
+  - [x] Write JUnit tests for math, collision, pathfinding
+- [x] Phase 10: Documentation and portfolio polish
+  - [x] Complete markdown documents
+  - [x] Cleanup source code and final checks

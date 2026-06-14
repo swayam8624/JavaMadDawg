@@ -9,7 +9,7 @@ import com.singal.maddog.input.InputManager;
 public class RainGame {
     public static void main(String[] args) {
         // Instantiate the application at standard 300x168 buffer scaled by 3 (900x504 window size)
-        Application app = new Application("Rain Remastered", 300, 168, 3);
+        Application app = new Application("MadDawg", 300, 168, 3);
         
         InputManager input = new InputManager();
         app.addKeyListener(input);
