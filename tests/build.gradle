@@ -1,0 +1,15 @@
+dependencies {
+    implementation project(':engine-math')
+    implementation project(':engine-core')
+    implementation project(':engine-renderer')
+    implementation project(':engine-assets')
+    implementation project(':engine-input')
+    implementation project(':engine-physics2d')
+    implementation project(':engine-ai')
+    implementation project(':engine-network')
+    implementation project(':engine-tools')
+
+    testImplementation platform('org.junit:junit-bom:5.10.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}

@@ -1,0 +1,10 @@
+apply plugin: 'application'
+
+application {
+    mainClass = 'com.singal.maddog.examples.GameLoopExample'
+}
+
+dependencies {
+    implementation project(':engine-core')
+    implementation project(':engine-tools')
+}
